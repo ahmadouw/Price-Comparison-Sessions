@@ -230,12 +230,7 @@ def perform_ANOVA(df):
         f_statistic, p_value = results 
         print(f"{feature:<22} | {f_statistic:>20,.2f} | {p_value:.3f}")
 
-#calculate the normalized value counts for a given column in all clusters
-def calculate_normalized_counts(column_name, clusters):
-    normalized_counts = {}
-    for i, cluster in enumerate(clusters):
-        normalized_counts[f'Cluster {i}'] = cluster[column_name].value_counts(normalize=True)
-    return pd.DataFrame(normalized_counts).fillna(0)
+
 
 #create principal components of different stats
 def apply_PCA(df, components):

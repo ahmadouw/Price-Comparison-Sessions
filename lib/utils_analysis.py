@@ -326,3 +326,10 @@ def mean_price(df):
     plt.xlabel('Cluster')
     plt.ylabel('Standardized average Product View Price')
     plt.show()
+
+#calculate the normalized value counts for a given column in all clusters
+def calculate_normalized_counts(column_name, clusters):
+    normalized_counts = {}
+    for i, cluster in enumerate(clusters):
+        normalized_counts[f'Cluster {i}'] = cluster[column_name].value_counts(normalize=True)
+    return pd.DataFrame(normalized_counts).fillna(0)
